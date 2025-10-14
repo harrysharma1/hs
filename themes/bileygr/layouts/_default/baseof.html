@@ -5,7 +5,7 @@
 </head>
 <body>
   <div class="flex h-screen flex-col bg-gray-950">
-        <nav class="flex w-full flex-col border-b-1 border-gray-700 bg-gray-950 pt-5 pl-5 text-white">
+        <nav class="flex w-full flex-col border-b-1 border-gray-700 bg-gray-950 pt-5 pl-5 text-gray-300">
         <div class="flex flex-row">
             <a href="/" class="flex flex-row items-center gap-4">
                 <svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle" fill="white">
@@ -13,6 +13,16 @@
                 </svg>
                 <div class="text-sm font-semibold select-none">harrysharma1</div>
             </a>
+            <div class="flex-grow"></div>
+            <div class="pr-5">
+                <div class="border-1 border-gray-700 p-1 rounded-md">
+                    <a href="/harry_cv.pdf" download class="flex flex-row items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="gray" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="flex flex-row pt-4 text-sm select-none gap-5">
         <a href="/" class="inline-flex items-center gap-1 pb-[4px] {{ if eq .RelPermalink "/" }}border-b-2 border-amber-500 {{ end }}">
@@ -39,7 +49,7 @@
       {{ block "main" . }}{{ end }}
     </main>
 
-    <footer>
+    <footer class="flex text-gray-300 text-sm items-center justify-center select-none">
       {{ partial "footer.html" . }}
     </footer>
   </div>
