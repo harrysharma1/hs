@@ -222,6 +222,9 @@
   .bg-gray-950 {
     background-color: var(--color-gray-950);
   }
+  .p-10 {
+    padding: calc(var(--spacing) * 10);
+  }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }

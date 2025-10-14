@@ -1,11 +1,16 @@
 {{ define "main" }}
-<ul>
-{{ range .Pages.ByPublishDate }}
-  <li>
-    <a href="{{ .RelPermalink }}">
-      {{ .Title }}
-    </a>
-  </li>
-{{ end }}
-</ul>
+<div class="p-10">
+    <div class="flex flex-row gap-5">
+        {{ .Content }} 
+    </div>
+    <ul>
+    {{ range .Pages.ByPublishDate }}
+    <li>
+        <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+        </a>
+    </li>
+    {{ end }}
+    </ul>
+</div>
 {{ end }}
