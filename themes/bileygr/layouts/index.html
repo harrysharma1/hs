@@ -1,19 +1,27 @@
 {{ define "main" }}
-<div class="flex items-center justify-center pt-5">
-    <div class="grid grid-flow-col grid-rows-3 gap-4">
-    <div class="row-span-3 ...">
-        <div class="flex flex-col">
-            <div class="size-70 rounded-full overflow-hidden border border-gray-700 ring-2 ring-gray-900 outline -outline-offset-1 outline-white/10">
-                <img src="/yhwach.jpg" alt="Profile" class="object-cover w-full h-full" />
-            </div>
-            <div class="pt-4">
+<div class="flex items-center justify-center pt-15">
+    <div class="flex flex-row gap-10 flex-wrap md:flex-nowrap max-w-full">
+    <div class="flex flex-col items-center text-center">
+        <div class="size-70 rounded-full overflow-hidden border border-gray-700 ring-2 ring-gray-900 outline -outline-offset-1 outline-white/10">
+            <img src="/yhwach.jpg" alt="Profile" class="object-cover w-full h-full" />
+        </div>
+        <div class="pt-4 w-full">
+            <div class="flex flex-col items-start text-left pl-4">
                 <h2 class="font-bold text-2xl text-white">Harry Sharma</h2>
-                <p class="text-xl text-gray-300">harrysharma1</p>
+            <p class="text-xl text-gray-300">harrysharma1</p>
             </div>
         </div>
     </div>
-    <div class="col-span-2 ...">02</div>
-    <div class="col-span-2 row-span-2 ...">03</div>
+    
+    {{ $readme := readFile "/assets/harrysharma1/README.md" }}
+    <div class="text-gray-300 text-sm select-none max-w-full flex-grow p-5 w-[750px]">
+            <div class="border border-gray-700 p-5 rounded-md">
+                <p class="font-mono">harrysharma1/README.md</p>
+                <hr class="h-px my-8 bg-gray-700 border-0 dark:bg-gray-700">
+                <div class="prose prose-invert max-w-none">
+                    {{ $readme | markdownify | safeHTML }}
+                </div>
+            </div>
     </div>
 </div>
 {{ end }}
