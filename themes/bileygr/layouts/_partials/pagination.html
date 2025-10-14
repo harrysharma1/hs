@@ -1,0 +1,57 @@
+{{- $validFormats := slice "default" "terse" }}
+
+{{- $msg1 := "When passing a map to the internal pagination template, one of the elements must be named 'page', and it must be set to the context of the current page." }}
+{{- $msg2 := "The 'format' specified in the map passed to the internal pagination template is invalid. Valid choices are: %s." }}
+
+{{- $page := . }}
+{{- $format := "default" }}
+
+{{- if reflect.IsMap . }}
+  {{- with .page }}
+    {{- $page = . }}
+  {{- else }}
+    {{- errorf $msg1 }}
+  {{- end }}
+  {{- with .format }}
+    {{- $format = lower . }}
+  {{- end }}
+{{- end }}
+
+{{- if in $validFormats $format }}
+  {{- if gt $page.Paginator.TotalPages 1 }}
+    <ul class="pagination pagination-{{ $format }}">
+      {{- partial (printf "inline/pagination/%s.html" $format) $page }}
+    </ul>
+  {{- end }}
+{{- else }}
+  {{- errorf $msg2 (delimit $validFormats ", ") }}
+{{- end -}}
+
+{{/* Format: default
+{{/* --------------------------------------------------------------------- */}}
+{{- define "_partials/inline/pagination/default.html" }}
+    {{- with .Paginator }}
+    <div class="flex justify-between items-center w-full gap-10">
+        {{- /* Previous Button */ -}}
+        {{- with .Prev }}
+        <a href="{{ .URL }}" aria-label="Previous"
+            class="px-4 py-2 rounded text-blue-400  border border-transparent hover:border-gray-700">
+            &lt; Previous
+        </a>
+        {{- else }}
+        <span class="px-4 py-2 rounded text-gray-400 cursor-not-allowed border border-transparent hover:border-gray-700">&lt; Previous</span>
+        {{- end }}
+
+        {{- /* Next Button */ -}}
+        {{- with .Next }}
+        <a href="{{ .URL }}" aria-label="Next"
+            class="px-4 py-2 rounded  text-blue-400  border border-transparent hover:border-gray-700">
+            Next &gt;
+        </a>
+        {{- else }}
+        <span class="px-4 py-2  rounded text-gray-400 cursor-not-allowed border border-transparent hover:border-gray-700">Next &gt;</span>
+        {{- end }}
+    </div>
+    {{- end }}
+{{- end -}}
+
