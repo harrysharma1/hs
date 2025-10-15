@@ -2,7 +2,7 @@
 <div class="max-w-[900px] mx-auto">
   {{ $readme := readFile "/assets/harrysharma1/README.md" }}
   <div class="border border-gray-700 p-5 rounded-md">
-    <p class="font-mono text-gray-400 mb-3">harrysharma1/README.md</p>
+    <p class="font-mono text-gray-400 mb-3 select-none">harrysharma1/README.md</p>
     <hr class="h-px my-6 bg-gray-700 border-0">
     <div class="prose prose-invert max-w-none">
       {{ $readme | markdownify | safeHTML }}

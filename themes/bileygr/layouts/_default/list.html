@@ -13,12 +13,12 @@
       <ul class="flex gap-2 flex-wrap">
         {{ range . }}
         <li class="hover:text-blue-400">
-          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><i class="bi bi-tag"></i> {{ . }}</a>
         </li>
         {{ end }}
       </ul>
       {{ end }}
-      <span>Created {{ .Date | time.Format ":date_medium" }}</span>
+        <span>Created {{ .Date | time.Format ":date_medium" }} </span>
     </div>
   </div>
   {{ end }}

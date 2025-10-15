@@ -1,5 +1,22 @@
 {{ define "main" }}
-<h2>{{ .Title }}</h2>
-<p>{{ .PublishDate }}</p>
-<div>{{ .Content }}</div>
+{{ $path := .File.Path }}
+<div class="max-w-[900px] mx-auto">
+  <div class="border border-gray-700 p-5 rounded-md">
+        <p class="font-mono text-gray-400 mb-3 select-none">harrysharma1/{{ $path }}</p>
+        <hr class="h-px my-6 bg-gray-700 border-0">
+        <div class="prose prose-invert max-w-none">
+            {{ .Content }}
+        </div>
+    </div>
+    <p class="text-gray-400 pt-5">Created {{ .Date | time.Format ":date_medium" }}</p>
+    <ul class="flex gap-2 flex-wrap">
+        {{ with .Params.tags }}
+            {{ range . }}
+            <li class="hover:text-blue-400 text-gray-400">
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><i class="bi bi-tag"></i> {{ . }}</a>
+            </li>
+            {{ end }}
+        {{ end }}
+    </ul>
+</div>
 {{ end }}
