@@ -30,27 +30,33 @@
 {{/* Format: default
 {{/* --------------------------------------------------------------------- */}}
 {{- define "_partials/inline/pagination/default.html" }}
+    {{- $pagesLen := .Pages.Len }}
     {{- with .Paginator }}
     <div class="flex justify-between items-center w-full gap-10">
-        {{- /* Previous Button */ -}}
-        {{- with .Prev }}
-        <a href="{{ .URL }}" aria-label="Previous"
-            class="px-4 py-2 rounded text-blue-400  border border-transparent active:border-blue-400 hover:border-gray-700">
-            &lt; Previous
-        </a>
-        {{- else }}
-        <span class="px-4 py-2 rounded text-gray-400 cursor-not-allowed border border-transparent active:border-blue-400 hover:border-gray-700">&lt; Previous</span>
-        {{- end }}
+        {{- if gt $pagesLen 7 }}
+            {{- with .Prev }}
+            <a href="{{ .URL }}" aria-label="Previous"
+                class="px-4 py-2 rounded text-blue-400  border border-transparent active:border-blue-400 hover:border-gray-700">
+                &lt; Previous
+            </a>
+            {{- else }}
+            <span class="px-4 py-2 rounded cursor-not-allowed text-gray-400 border border-transparent">&lt; Previous</span>
+            {{- end }}
 
-        {{- /* Next Button */ -}}
-        {{- with .Next }}
-        <a href="{{ .URL }}" aria-label="Next"
-            class="px-4 py-2 rounded  text-blue-400  border border-transparent active:border-blue-400 hover:border-gray-700">
-            Next &gt;
-        </a>
-        {{- else }}
-        <span class="px-4 py-2  rounded text-gray-400 cursor-not-allowed border border-transparent active:border-blue-400 hover:border-gray-700">Next &gt;</span>
+            {{- /* Next Button */ -}}
+            {{- with .Next }}
+            <a href="{{ .URL }}" aria-label="Next"
+                class="px-4 py-2 rounded  text-blue-400  border border-transparent active:border-blue-400 hover:border-gray-700">
+                Next &gt;
+            </a>
+            {{- else }}
+            <span class="px-4 py-2 rounded cursor-not-allowed text-gray-400 border border-transparent">Next &gt;</span>
+            {{- end }}
+        {{- else}}
+            <span class="px-4 py-2 rounded cursor-not-allowed text-gray-400 border border-transparent">&lt; Previous</span>
+            <span class="px-4 py-2 rounded cursor-not-allowed text-gray-400 border border-transparent">Next &gt;</span>
         {{- end }}
+       
     </div>
     {{- end }}
 {{- end -}}
