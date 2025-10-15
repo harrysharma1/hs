@@ -35,21 +35,21 @@
         {{- /* Previous Button */ -}}
         {{- with .Prev }}
         <a href="{{ .URL }}" aria-label="Previous"
-            class="px-4 py-2 rounded text-blue-400  border border-transparent hover:border-gray-700">
+            class="px-4 py-2 rounded text-blue-400  border border-transparent active:border-blue-400 hover:border-gray-700">
             &lt; Previous
         </a>
         {{- else }}
-        <span class="px-4 py-2 rounded text-gray-400 cursor-not-allowed border border-transparent hover:border-gray-700">&lt; Previous</span>
+        <span class="px-4 py-2 rounded text-gray-400 cursor-not-allowed border border-transparent active:border-blue-400 hover:border-gray-700">&lt; Previous</span>
         {{- end }}
 
         {{- /* Next Button */ -}}
         {{- with .Next }}
         <a href="{{ .URL }}" aria-label="Next"
-            class="px-4 py-2 rounded  text-blue-400  border border-transparent hover:border-gray-700">
+            class="px-4 py-2 rounded  text-blue-400  border border-transparent active:border-blue-400 hover:border-gray-700">
             Next &gt;
         </a>
         {{- else }}
-        <span class="px-4 py-2  rounded text-gray-400 cursor-not-allowed border border-transparent hover:border-gray-700">Next &gt;</span>
+        <span class="px-4 py-2  rounded text-gray-400 cursor-not-allowed border border-transparent active:border-blue-400 hover:border-gray-700">Next &gt;</span>
         {{- end }}
     </div>
     {{- end }}
