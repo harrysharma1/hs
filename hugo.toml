@@ -2,3 +2,23 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Portfolio'
 theme = 'bileygr'
+
+[mediaTypes]
+  [mediaTypes."application/json"]
+    suffixes = ["json"]
+
+[outputFormats]
+  [outputFormats.JSONFEED]
+    mediaType = "application/json"
+    baseName = "feed"
+    isPlainText = true
+    notAlternative = false
+    permalinkable = true
+  [outputFormats.JSONDATES]
+    mediaType = "application/json"
+    baseName = "dates"
+    isPlainText = true
+    permalinkable = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSONFEED", "JSONDATES"]

@@ -1,1 +1,6 @@
-© 2025 Harry Sharma | harrysharma1066@gmail.com
+© 2025 Harry Sharma | harrysharma1066@gmail.com &nbsp;
+{{ with .OutputFormats.Get "jsonfeed" }}
+    <a href="{{ .Permalink }}" class="text-gray-400 hover:text-blue-400 hover:underline">
+      JSON Feed
+    </a>
+{{ end }}

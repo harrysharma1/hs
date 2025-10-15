@@ -808,6 +808,9 @@
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
   }
+  .pr-10 {
+    padding-right: calc(var(--spacing) * 10);
+  }
   .pb-\[4px\] {
     padding-bottom: 4px;
   }
