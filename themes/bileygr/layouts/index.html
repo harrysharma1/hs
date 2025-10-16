@@ -8,8 +8,16 @@
       {{ $readme | markdownify | safeHTML }}
     </div>
   </div>
-  <div class="pr-10 pt-5">
-   <div class="text-white" id="cal-heatmap"></div>  
+  <div class="pt-5"></div>
+  <div class="border border-gray-700 p-5 rounded-md flex flex-col gap-2 select-none">
+   <div class="text-gray-300 overflow-auto" id="cal-heatmap"></div> 
+   <div class="md:ml-[560px]">
+    <div class="flex flex-row justify-center items-center gap-2">
+      <span class="text-xs text-gray-400">Less</span>
+      <div id="ex-ghDay-legend"></div>
+      <span class="text-xs text-gray-400">More</span> 
+    </div> 
+   </div>
   </div>
 </div>
 {{ end }}

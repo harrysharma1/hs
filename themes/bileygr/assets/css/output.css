@@ -8,6 +8,10 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-green-50: oklch(98.2% 0.018 155.826);
+    --color-green-300: oklch(87.1% 0.15 154.449);
+    --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-green-950: oklch(26.6% 0.065 152.934);
     --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
@@ -715,6 +719,9 @@
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
+  .overflow-auto {
+    overflow: auto;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -778,6 +785,9 @@
   .bg-gray-950 {
     background-color: var(--color-gray-950);
   }
+  .bg-green-950 {
+    background-color: var(--color-green-950);
+  }
   .object-cover {
     object-fit: cover;
   }
@@ -807,9 +817,6 @@
   }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
-  }
-  .pr-10 {
-    padding-right: calc(var(--spacing) * 10);
   }
   .pb-\[4px\] {
     padding-bottom: 4px;
@@ -949,6 +956,11 @@
   .active\:border-blue-400 {
     &:active {
       border-color: var(--color-blue-400);
+    }
+  }
+  .md\:ml-\[560px\] {
+    @media (width >= 48rem) {
+      margin-left: 560px;
     }
   }
   .md\:min-h-screen {

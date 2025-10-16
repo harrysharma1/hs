@@ -1,4 +1,5 @@
-import CalHeatmap from 'cal-heatmap';
+import CalHeatmap from "cal-heatmap";
+import LegendLite from "cal-heatmap/plugins/LegendLite";
 async function fetchData(){
     try{
         const response = await fetch("/dates.json");
@@ -24,7 +25,12 @@ async function main(){
 
     const cal = new CalHeatmap();
     cal.paint({
-        data: { source: data },
+        theme:"dark",
+        data: { 
+            source: data,
+            x: 'date',
+            y: 'value'
+        },
         itemSelector: "#cal-heatmap",
         type: "year",
         date: { 
@@ -35,9 +41,14 @@ async function main(){
         range: 12,
         scale: {
             color: {
-                type: 'linear',
-                scheme: 'Cool',
-                domain: [0,5],
+                type: 'threshold',
+                range: [  
+                    "#ecfdf5", // Tailwind bg-green-50
+                    "#86efac", // Tailwind bg-green-300
+                    "#22c55e", // Tailwind bg-green-500
+                    "#14532d", // Tailwind bg-green-950 
+                ],
+                domain: [0,5,10],
             },
         },
         domain: {
@@ -45,9 +56,24 @@ async function main(){
             gutter: 4,
             label: { text: 'MMM', textAlign: 'start', position: 'top' },
         },
-        subDomain: { type: 'ghDay', radius: 2, width: 11, height: 11, gutter: 4 },
-            
-    });
+        subDomain: { 
+            type: 'ghDay', 
+            radius: 2, 
+            width: 11, 
+            height: 11, 
+            gutter: 4,
+        },      
+    },
+    [
+        [
+            LegendLite,
+            {
+                radius: 3,
+                itemSelector: '#ex-ghDay-legend'
+            }
+        ]
+    ]
+    );
 }
 
 main()
