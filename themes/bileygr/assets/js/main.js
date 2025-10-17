@@ -181,14 +181,14 @@ async function createYearButtons() {
     .map(d => d.substring(0,4))
     .map(Number)
     .sort((a,b)=>a-b);
+    console.log(data);
 
     const beginYear = dates[0];
     const endYear = dates[dates.length - 1];
 
 
     const years = Array.from({ length: endYear - beginYear + 1 }, (_, i) => beginYear + i);
-    const postsCountContainer = document.getElementById("contributionYear");
-    postsCountContainer.innerHTML = years.length + (years.length === 1 ? " post ":" posts ") + "this year";    
+  
 
 
     const radioDivContainer = document.getElementById("yearButtons");
@@ -227,6 +227,11 @@ async function createYearButtons() {
     wrapper.appendChild(radioDivButtonLabel);
     radioDivContainer.appendChild(wrapper);
     });
+    
+    const postsCountContainer = document.getElementById("contributionYear");
+    const postsPerYear = data
+        .filter(d => Number(d.substring(0,4)) === endYear)
+    postsCountContainer.innerHTML = postsPerYear.length + (postsPerYear.length === 1 ? " post ":" posts ") + "this year";    
     await renderCalendar(endYear);
 }
 
