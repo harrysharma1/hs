@@ -1,0 +1,25 @@
+[params]
+    author = "Harry Sharma"
+    username = "harrysharma1"
+    githubUrl = "https://github.com/harrysharma1"
+    location = "Northampton, England"
+    quote = "Job market is cooked, and so am I..."
+    emails = ["harrysharma1066@gmail.com","inquiry@harrysharma.co.uk"]
+    profileImgSrc = "/yhwach.jpg"
+    cvSrc = "/harry_cv.pdf"
+    [[params.socials]]
+        name = "LinkedIn"
+        icon = "bi bi-linkedin"
+        url = "https://www.linkedin.com/in/harry-sharma-567b21225"
+    [[params.socials]]
+        name = "Pintrest"
+        icon = "bi bi-pinterest"
+        url = "https://www.pinterest.com/harrysharma1066"
+    [[params.socials]]
+        name = "Goodreads"
+        icon = "bi bi-book"
+        url = "https://www.goodreads.com/user/show/184799979-harry"
+    [[params.socials]]
+        name = "Substack"
+        icon = "bi bi-substack"
+        url = "https://substack.com/@harrysharma1?utm_campaign=profile&utm_medium=profile-page"
