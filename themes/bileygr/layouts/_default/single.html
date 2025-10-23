@@ -2,7 +2,7 @@
 {{ $path := .File.Path }}
 <div class="max-w-[900px] mx-auto">
   <div class="border border-gray-700 p-5 rounded-md">
-        <p class="font-mono text-gray-400 mb-3 select-none">harrysharma1/{{ $path }}</p>
+        <p class="font-mono text-gray-400 mb-3 select-none">{{ .Site.Params.username }}/{{ $path }}</p>
         <hr class="h-px my-6 bg-gray-700 border-0">
         <div class="prose prose-invert max-w-none">
             {{ .Content }}

@@ -4,7 +4,7 @@
   <div class="border border-gray-700 p-5 rounded-md">
     <p class="font-mono text-gray-400 mb-3 select-none">{{ .Site.Params.username }}/README.md</p>
     <hr class="h-px my-6 bg-gray-700 border-0">
-    <div class="prose prose-invert max-w-none">
+    <div class="prose prose-invert max-w-none select-none">
       {{ $readme | markdownify | safeHTML }}
     </div>
   </div>
@@ -13,7 +13,7 @@
   <div class="border border-gray-700 p-5 rounded-md flex flex-col gap-2 select-none">
    <div class="text-gray-300 overflow-auto" id="cal-heatmap"></div> 
    <div class="md:ml-[560px]">
-    <div class="flex flex-row justify-center items-center gap-2">
+    <div class="flex flex-row justify-center items-center gap-2 overflow-auto">
       <span class="text-xs text-gray-400">Less</span>
       <div id="ex-ghDay-legend"></div>
       <span class="text-xs text-gray-400">More</span> 

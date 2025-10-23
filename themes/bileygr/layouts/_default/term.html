@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="flex flex-col max-w-[900px] mx-auto">
-    <h1 class="text-gray-300 select-none font-mono text-xl">harrysharma1/tags/{{ .Title }}</h1>
+    <h1 class="text-gray-300 select-none font-mono text-xl">{{ .Site.Params.username }}/tags/{{ .Title }}</h1>
     {{ $pages := .Pages.ByDate.Reverse  }}
     {{ $paginator := .Paginate $pages 7 }}
 

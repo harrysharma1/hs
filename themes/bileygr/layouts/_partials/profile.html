@@ -4,13 +4,13 @@
     </div>
     <div class="pt-4 w-full">
         <div class="flex flex-col items-start text-left pl-4">
-            <h2 class="font-bold text-2xl text-white">{{ .Site.Params.author }}</h2>
-            <p class="text-xl text-gray-400 font-light">{{ .Site.Params.username }}</p>
-            <p class="text-sm text-white font-extralight pt-5">{{ .Site.Params.quote }}</p>
-             <p class="text-sm text-gray-300 font-extralight pt-5"><i class="bi bi-geo-alt"></i> {{ .Site.Params.location }}</p>
+            <h2 class="font-bold text-2xl text-white select-none">{{ .Site.Params.author }}</h2>
+            <p class="text-xl text-gray-400 font-light select-none">{{ .Site.Params.username }}</p>
+            <p class="text-sm text-white font-extralight pt-5 select-none">{{ .Site.Params.quote }}</p>
+             <p class="text-sm text-gray-300 font-extralight pt-5 select-none"><i class="bi bi-geo-alt"></i> {{ .Site.Params.location }}</p>
             <div class="inline-flex items-center justify-center w-full">
                 <hr class="w-64 h-px my-8 bg-gray-700 border-0 dark:bg-gray-700">
-                <span class="absolute px-3 font-medium text-gray-300 -translate-x-1/2 bg-gray-950 left-1/2 dark:text-white dark:bg-gray-950">Socials</span>
+                <span class="absolute px-3 font-medium text-gray-300 -translate-x-1/2 bg-gray-950 left-1/2 dark:text-white dark:bg-gray-950 select-none">Socials</span>
             </div>
             <div class="flex flex-row gap-3 text-gray-300 text-3xl">
                 {{ range .Site.Params.socials }}
@@ -21,9 +21,9 @@
             </div>
             <div class="inline-flex items-center justify-center w-full">
                 <hr class="w-64 h-px my-8 bg-gray-700 border-0 dark:bg-gray-700">
-                <span class="absolute px-3 font-medium text-gray-300 -translate-x-1/2 bg-gray-950 left-1/2 dark:text-white dark:bg-gray-950">Email</span>
+                <span class="absolute px-3 font-medium text-gray-300 -translate-x-1/2 bg-gray-950 left-1/2 dark:text-white dark:bg-gray-950 select-none">Email</span>
             </div>
-            <div class="text-gray-300">
+            <div class="text-gray-300 select-none">
                 {{ range .Site.Params.emails }}
                     <a href="mailto:{{ . }}" class="hover:underline hover:text-blue-400 flex justify-start items-start">
                         <i class="bi bi-envelope"></i> &nbsp; {{ . }}

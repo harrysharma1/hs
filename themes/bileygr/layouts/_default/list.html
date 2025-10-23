@@ -1,11 +1,11 @@
 {{ define "main" }}
 <div class="flex flex-col max-w-[900px] mx-auto">
-  <div class="text-2xl text-gray-400">{{ .Title }}</div>
+  <h1 class="text-gray-300 select-none font-mono text-xl">{{ .Site.Params.username }}/{{ .Title }}</h1>
   {{ $pages := .Pages }}
   {{ $paginator := .Paginate $pages.ByDate.Reverse 7 }}
 
   {{ range $paginator.Pages }}
-  <div class="border-b border-gray-700 py-8">
+  <div class="border-b border-gray-700 py-8 select-none">
     <a href="{{ .RelPermalink }}" class="text-blue-400 text-2xl hover:underline">
       {{ .LinkTitle }}
     </a>

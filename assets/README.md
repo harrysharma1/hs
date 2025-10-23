@@ -1,9 +1,49 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet ipsum accumsan, elementum est nec, egestas lacus. Maecenas eleifend eget urna vitae consectetur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut ligula leo, auctor vel laoreet et, lobortis nec neque. Donec congue eu nisi ac gravida. Sed vitae arcu felis. Cras fermentum efficitur maximus. Duis a tellus malesuada, scelerisque nibh ut, rutrum dolor. Pellentesque id turpis venenatis, cursus elit sed, luctus lacus. In suscipit arcu sed est ultricies, nec lobortis felis tristique. Phasellus egestas nulla et vestibulum ultricies.
+# Skills
+---
+## Languages
+- Python
+- Java
+- Golang
+- HTML/CSS/JS
+- C/C++
+- Lua
+---
+## Tooling
 
-Cras molestie molestie sollicitudin. Aenean bibendum eros vel condimentum aliquet. Aenean malesuada rutrum lacus tempor finibus. Vestibulum vulputate ex id cursus vehicula. Praesent elementum ante id nisi dignissim lobortis. Fusce aliquet malesuada risus ac scelerisque. Suspendisse ut arcu fermentum, congue ligula eu, blandit quam. Duis aliquam augue sed metus hendrerit, nec imperdiet nibh maximus. Suspendisse luctus, diam sed sodales pharetra, mi mi varius sem, ut sodales ex est non justo. Ut eget dignissim eros.
+### IaC (Infrastructure As Code)
+- Puppet
+- Terraform
 
-Vivamus posuere libero quis feugiat iaculis. Morbi semper auctor leo id scelerisque. Mauris at purus vel diam tempus tristique. Praesent non nisl non magna pharetra placerat quis a lectus. Ut commodo posuere tortor. Praesent imperdiet est eu nulla placerat porta. Mauris placerat velit massa. Maecenas tincidunt quam quis felis commodo, eget auctor lectus porttitor. Donec rhoncus, metus non elementum venenatis, eros enim egestas turpis, at rhoncus orci eros eget felis. Cras sed felis malesuada, pharetra eros eu, condimentum urna. Cras posuere rutrum libero sed posuere. Praesent sem urna, ultrices id mollis vitae, ullamcorper sed ex. Sed vel purus metus. Curabitur risus augue, sodales id mauris vel, laoreet maximus libero.
+### Containerisation
+- Docker
+- Singularity
 
-Proin pretium congue sem non condimentum. Sed varius odio sit amet ante tristique, a porttitor justo venenatis. In hac habitasse platea dictumst. Aenean sapien velit, pellentesque in rutrum nec, varius at ex. Etiam et lectus mauris. Pellentesque justo nisi, hendrerit at sem in, tempus scelerisque ante. Aliquam sollicitudin, tellus at condimentum varius, risus velit placerat tellus, ut finibus nunc erat vel tellus. Praesent vel lobortis dui. Praesent euismod mattis purus ut convallis.
+### Cloud Platform
+- OpenStack
 
-Nulla quis lacus est. Morbi posuere, nisl eu elementum mattis, orci ex ultrices enim, ut finibus eros ante at ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam feugiat tortor sed lectus sagittis, ut sagittis libero aliquam. Aliquam erat volutpat. Suspendisse arcu ligula, sollicitudin sed rhoncus id, dignissim a libero. Fusce mollis felis orci, at maximus enim ornare et. Nunc vitae lectus volutpat, eleifend leo ut, dictum sapien. Nunc fringilla a diam imperdiet cursus. Etiam cursus dolor nec velit dapibus, sed pharetra risus maximus.
+### Database
+
+#### SQL
+- PostgreSQL
+- Sqlite3
+
+#### NoSQL
+- MongoDB
+
+### Web frameworks
+- Flask
+- Django
+- Hugo
+- Echo
+- Gin
+- etc.
+---
+## OS I have Experience In
+- Linux
+    - KaliLinux
+    - Ubuntu
+    -  AlmaLinux
+- OSX
+
+---
+*Honestly why do I need to learn 400+ Leetcode problems, System Design, Behavioural and have 5+ years of experience for an entry level job.*
