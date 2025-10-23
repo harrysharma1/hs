@@ -1,6 +1,6 @@
 {
     "dates": [
-    {{- $pages := where .Site.RegularPages "Type" "posts" -}}
+    {{- $pages := site.RegularPages -}}
     {{- range $index, $page := $pages -}}
       {{- if $index }},{{ end -}}
       

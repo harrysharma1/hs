@@ -4,7 +4,7 @@
   "home_page_url": "{{ .Site.BaseURL }}",
   "feed_url": "{{ .Permalink }}",
   "items": [
-    {{- $pages := where .Site.RegularPages "Type" "posts" -}}
+    {{- $pages := site.RegularPages -}}
     {{- range $index, $page := $pages -}}
       {{- if $index }},{{ end -}}
       {
