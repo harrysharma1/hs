@@ -106,8 +106,8 @@ async function renderCalendar(selectedYear) {
             enabled: true,
             text: (date, value, dayjsDate) =>
             value
-                ? `${value} ${value === 1 ? "Post" : "Posts"} on ${dayjsDate.format("dddd, MMMM D, YYYY")}`
-                : `No Posts on ${dayjsDate.format("dddd, MMMM D, YYYY")}`,
+                ? `${value} ${value === 1 ? "Item" : "Items"} on ${dayjsDate.format("dddd, MMMM D, YYYY")}`
+                : `No Items on ${dayjsDate.format("dddd, MMMM D, YYYY")}`,
         },
         ],
         [
@@ -201,40 +201,40 @@ async function createYearButtons() {
     radioDivContainer.appendChild(wrapper);
     });
     
-    const postsCountContainer = document.getElementById("contributionYear");
-    const postsPerYear = data
+    const contentsCountContainer = document.getElementById("contributionYear");
+    const contentsPerYear = data
         .filter(d => Number(d.substring(0,4)) === endYear)
-    postsCountContainer.innerHTML = postsPerYear.length + (postsPerYear.length === 1 ? " post ":" posts ") + "this year";    
+    contentsCountContainer.innerHTML = contentsPerYear.length + (contentsPerYear.length === 1 ? " item ":" items ") + "this year";    
     await renderCalendar(endYear);
-    await renderPosts(endYear);
+    await renderContents(endYear);
 }
 
-async function renderPosts(year){
+async function renderContents(year){
     const dates = await fetchDates();
     const data = await fetchData();
     console.log(data);
-    const postsPerMonthCount = {};
+    const itemsPerMonthCount = {};
     for (const dateString of dates){
         const date = new Date(dateString);
         const month = date.getMonth();
-        if (postsPerMonthCount[month]){
-            postsPerMonthCount[month] ++;
+        if (itemsPerMonthCount[month]){
+            itemsPerMonthCount[month] ++;
         }else{
-            postsPerMonthCount[month] = 1;
+            itemsPerMonthCount[month] = 1;
         }
     }
 
 
-    const postsPerMonthCountAsNames = {};
+    const itemsPerMonthCountAsNames = {};
     const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    for (const monthAsNum in postsPerMonthCount){
-        postsPerMonthCountAsNames[monthName[monthAsNum]] = postsPerMonthCount[monthAsNum];
+    for (const monthAsNum in itemsPerMonthCount){
+        itemsPerMonthCountAsNames[monthName[monthAsNum]] = itemsPerMonthCount[monthAsNum];
     }
 
-    const countPerMonthContainer = document.getElementById("countOfPostsPerMonth");
+    const countPerMonthContainer = document.getElementById("countOfItemsPerMonth");
     countPerMonthContainer.className = "text-sm flex flex-col gap-1"
 
-    for (monthKey in postsPerMonthCountAsNames){
+    for (monthKey in itemsPerMonthCountAsNames){
         const dateDivContainer = document.createElement("div");
         dateDivContainer.className = "flex flex-row gap-1";
         const monthDiv = document.createElement("div");
@@ -247,7 +247,7 @@ async function renderPosts(year){
         dateDivContainer.appendChild(yearDiv);
         const monthCountDiv = document.createElement("div");
         monthCountDiv.className = "text-xl text-gray-400";
-        monthCountDiv.innerHTML = "Created " + postsPerMonthCountAsNames[monthKey] + (postsPerMonthCountAsNames[monthKey]>1?" posts":" post");
+        monthCountDiv.innerHTML = "Created " + itemsPerMonthCountAsNames[monthKey] + (itemsPerMonthCountAsNames[monthKey]>1?" items":" item");
                 
         countPerMonthContainer.appendChild(dateDivContainer);
         countPerMonthContainer.appendChild(monthCountDiv);
