@@ -209,50 +209,112 @@ async function createYearButtons() {
     await renderContents(endYear);
 }
 
-async function renderContents(year){
-    const dates = await fetchDates();
-    const data = await fetchData();
-    console.log(data);
-    const itemsPerMonthCount = {};
-    for (const dateString of dates){
-        const date = new Date(dateString);
+async function renderContents(year) {
+    const data = await fetchData(); // JSON feed with items
+    const postsByMonth = {};
+
+    // Group posts by month
+    for (const item of data.items) {
+        const date = new Date(item.date_published);
+        if (date.getFullYear() !== year) continue;
         const month = date.getMonth();
-        if (itemsPerMonthCount[month]){
-            itemsPerMonthCount[month] ++;
-        }else{
-            itemsPerMonthCount[month] = 1;
+        if (!postsByMonth[month]) postsByMonth[month] = [];
+        postsByMonth[month].push(item);
+    }
+
+    const monthName = [
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+    ];
+    const shortMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+    const container = document.getElementById("countOfItemsPerMonth");
+    container.innerHTML = "";
+    container.className = "p-5";
+
+    // Timeline container
+    const ol = document.createElement("ol");
+    ol.className = "relative border-s border-gray-200 dark:border-gray-700";
+
+    for (let monthNum = 0; monthNum < 12; monthNum++) {
+        const monthItems = postsByMonth[monthNum];
+        if (!monthItems || monthItems.length === 0) continue;
+
+        const li = document.createElement("li");
+        li.className = "relative ps-6 mb-10";
+
+        // Circle marker
+        const circle = document.createElement("div");
+        circle.className =
+            "absolute -start-[7px] mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700";
+        li.appendChild(circle);
+
+        // Month label
+        const timeEl = document.createElement("time");
+        timeEl.className =
+            "mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 block";
+        timeEl.textContent = `${monthName[monthNum]} ${year}`;
+        li.appendChild(timeEl);
+
+        // Container for post links
+        const linksWrapper = document.createElement("div");
+        linksWrapper.className = "flex flex-col gap-1";
+
+        monthItems.forEach((post, i) => {
+            const date = new Date(post.date_published);
+            const formatted = `${shortMonth[date.getMonth()]} ${date.getDate()}`;
+
+            const wrapper = document.createElement("div");
+            wrapper.className = `${i > 0 ? "hidden" : ""}`;
+
+            const a = document.createElement("a");
+            a.href = post.url;
+            a.rel = "noopener noreferrer";
+            a.className =
+                "text-base font-normal text-blue-600 dark:text-blue-400 hover:underline";
+            a.textContent = post.title;
+
+            // date badge
+            const small = document.createElement("span");
+            small.className = "ml-2 text-sm text-gray-400 dark:text-gray-500";
+            small.textContent = `· ${formatted}`;
+
+            wrapper.appendChild(a);
+            wrapper.appendChild(small);
+
+            linksWrapper.appendChild(wrapper);
+        });
+
+        li.appendChild(linksWrapper);
+
+        // Toggle button if more than one post
+        if (monthItems.length > 1) {
+            const toggleBtn = document.createElement("button");
+            toggleBtn.textContent = "See more";
+            toggleBtn.className =
+                "rounded-md border border-gray-300 dark:border-gray-700 px-2 py-1 mt-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition";
+
+            toggleBtn.addEventListener("click", () => {
+                const links = linksWrapper.querySelectorAll("div");
+                links.forEach((link, i) => {
+                    if (i > 0) link.classList.toggle("hidden");
+                });
+                toggleBtn.textContent =
+                    toggleBtn.textContent === "See more" ? "See less" : "See more";
+            });
+
+            li.appendChild(toggleBtn);
         }
+
+        ol.appendChild(li);
     }
 
-
-    const itemsPerMonthCountAsNames = {};
-    const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    for (const monthAsNum in itemsPerMonthCount){
-        itemsPerMonthCountAsNames[monthName[monthAsNum]] = itemsPerMonthCount[monthAsNum];
-    }
-
-    const countPerMonthContainer = document.getElementById("countOfItemsPerMonth");
-    countPerMonthContainer.className = "text-sm flex flex-col gap-1"
-
-    for (monthKey in itemsPerMonthCountAsNames){
-        const dateDivContainer = document.createElement("div");
-        dateDivContainer.className = "flex flex-row gap-1";
-        const monthDiv = document.createElement("div");
-        monthDiv.className = "text-white font-bold";
-        monthDiv.innerHTML = monthKey;
-        const yearDiv = document.createElement("div");
-        yearDiv.className = "text-gray-400";
-        yearDiv.innerHTML = year;
-        dateDivContainer.appendChild(monthDiv);
-        dateDivContainer.appendChild(yearDiv);
-        const monthCountDiv = document.createElement("div");
-        monthCountDiv.className = "text-xl text-gray-400";
-        monthCountDiv.innerHTML = "Created " + itemsPerMonthCountAsNames[monthKey] + (itemsPerMonthCountAsNames[monthKey]>1?" items":" item");
-                
-        countPerMonthContainer.appendChild(dateDivContainer);
-        countPerMonthContainer.appendChild(monthCountDiv);
-    }
+    container.appendChild(ol);
 }
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   await createYearButtons();
