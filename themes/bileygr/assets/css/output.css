@@ -654,9 +654,6 @@
     width: calc(var(--spacing) * 70);
     height: calc(var(--spacing) * 70);
   }
-  .h-24 {
-    height: calc(var(--spacing) * 24);
-  }
   .h-full {
     height: 100%;
   }
@@ -671,9 +668,6 @@
   }
   .w-full {
     width: 100%;
-  }
-  .w-px {
-    width: 1px;
   }
   .max-w-\[900px\] {
     max-width: 900px;
@@ -802,9 +796,6 @@
   .bg-gray-700 {
     background-color: var(--color-gray-700);
   }
-  .bg-gray-800 {
-    background-color: var(--color-gray-800);
-  }
   .bg-gray-950 {
     background-color: var(--color-gray-950);
   }
@@ -911,9 +902,6 @@
   }
   .text-gray-400 {
     color: var(--color-gray-400);
-  }
-  .text-gray-800 {
-    color: var(--color-gray-800);
   }
   .text-white {
     color: var(--color-white);

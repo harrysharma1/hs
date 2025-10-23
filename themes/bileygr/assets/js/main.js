@@ -212,6 +212,7 @@ async function createYearButtons() {
 async function renderPosts(year){
     const dates = await fetchDates();
     const data = await fetchData();
+    console.log(data);
     const postsPerMonthCount = {};
     for (const dateString of dates){
         const date = new Date(dateString);
