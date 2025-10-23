@@ -1,6 +1,6 @@
 {{ define "main" }}
   <div class="flex flex-col max-w-[900px] mx-auto">
-  {{ $pages := where site.RegularPages "Type" "posts" }}
+  {{ $pages := .Pages }}
   {{ $paginator := .Paginate $pages.ByDate.Reverse 7 }}
 
   <ul>
@@ -8,7 +8,7 @@
   <div class="border-b border-gray-700 py-8">
       <li>
         <a href="{{ .Page.Permalink }}" class="text-blue-400 text-2xl hover:underline">{{ .Page.Title }}</a>
-        <p class="text-gray-400 select-none">{{ .Count }} {{ if eq .Count 1 }} post {{ else }} posts {{ end }}</p>
+        <p class="text-gray-400 select-none">{{ .Count }} {{ if eq .Count 1 }} item {{ else }} items {{ end }}</p>
       </li> 
   </div>
   {{ end }}
