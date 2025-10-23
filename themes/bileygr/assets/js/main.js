@@ -2,49 +2,8 @@ import CalHeatmap from "cal-heatmap";
 import LegendLite from "cal-heatmap/plugins/LegendLite";
 import Tooltip from "cal-heatmap/plugins/Tooltip";
 import CalendarLabel from "cal-heatmap/plugins/CalendarLabel";
-const dummyData = [
-  { date: "2020-01-15", value: 3 },
-  { date: "2020-03-22", value: 9 },
-  { date: "2020-06-10", value: 7 },
-  { date: "2020-09-05", value: 14 },
-  { date: "2020-12-20", value: 5 },
 
-  { date: "2021-02-11", value: 8 },
-  { date: "2021-04-18", value: 2 },
-  { date: "2021-07-01", value: 10 },
-  { date: "2021-09-27", value: 6 },
-  { date: "2021-12-31", value: 12 },
-
-  { date: "2022-01-10", value: 4 },
-  { date: "2022-03-09", value: 15 },
-  { date: "2022-05-22", value: 3 },
-  { date: "2022-08-30", value: 9 },
-  { date: "2022-11-14", value: 13 },
-
-  { date: "2023-01-05", value: 11 },
-  { date: "2023-03-16", value: 5 },
-  { date: "2023-05-09", value: 14 },
-  { date: "2023-07-24", value: 8 },
-  { date: "2023-10-12", value: 1 },
-  { date: "2023-12-29", value: 6 },
-
-  { date: "2024-02-08", value: 7 },
-  { date: "2024-04-14", value: 10 },
-  { date: "2024-06-02", value: 3 },
-  { date: "2024-08-18", value: 12 },
-  { date: "2024-10-25", value: 5 },
-  { date: "2024-12-20", value: 15 },
-
-  { date: "2025-01-11", value: 2 },
-  { date: "2025-03-05", value: 9 },
-  { date: "2025-05-15", value: 4 },
-  { date: "2025-07-28", value: 13 },
-  { date: "2025-09-10", value: 8 },
-  { date: "2025-10-14", value: 11 },
-  { date: "2025-10-15", value: 1 },
-];
-
-async function fetchData(){
+async function fetchDates(){
     try{
         const response = await fetch("/dates.json");
         if (!response){
@@ -53,9 +12,24 @@ async function fetchData(){
         data = await response.json();
         return data.dates;
     }catch(error){
-        console.error("error fetching data: ", error)
+        console.error("error fetching dates: ", error)
     }
 }
+
+async function fetchData(){
+    try{
+        const response = await fetch("/feed.json");
+        if(!response){
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        data = await response.json();
+        return data;
+    }catch(error){
+        console.error("error fetching data: ",error)
+    }
+}
+
+
 async function parseData(data, selectedYear){
     dates = data.filter(d => d.substring(0,4) === `${selectedYear}`);
     const counts = {};
@@ -79,7 +53,7 @@ let cal = new CalHeatmap();
 async function renderCalendar(selectedYear) {
     const startDate = new Date(`${selectedYear}-01-01`);
     const endDate = new Date(`${selectedYear}-12-31`);
-    const data = await fetchData();
+    const data = await fetchDates();
     const dates = await parseData(data,selectedYear);
     await cal.paint(
     {
@@ -176,12 +150,11 @@ async function main(selectedYear) {
 }
 
 async function createYearButtons() {
-    const data = await fetchData();
+    const data = await fetchDates();
     const dates = data
     .map(d => d.substring(0,4))
     .map(Number)
     .sort((a,b)=>a-b);
-    console.log(data);
 
     const beginYear = dates[0];
     const endYear = dates[dates.length - 1];
@@ -233,6 +206,51 @@ async function createYearButtons() {
         .filter(d => Number(d.substring(0,4)) === endYear)
     postsCountContainer.innerHTML = postsPerYear.length + (postsPerYear.length === 1 ? " post ":" posts ") + "this year";    
     await renderCalendar(endYear);
+    await renderPosts(endYear);
+}
+
+async function renderPosts(year){
+    const dates = await fetchDates();
+    const data = await fetchData();
+    const postsPerMonthCount = {};
+    for (const dateString of dates){
+        const date = new Date(dateString);
+        const month = date.getMonth();
+        if (postsPerMonthCount[month]){
+            postsPerMonthCount[month] ++;
+        }else{
+            postsPerMonthCount[month] = 1;
+        }
+    }
+
+
+    const postsPerMonthCountAsNames = {};
+    const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    for (const monthAsNum in postsPerMonthCount){
+        postsPerMonthCountAsNames[monthName[monthAsNum]] = postsPerMonthCount[monthAsNum];
+    }
+
+    const countPerMonthContainer = document.getElementById("countOfPostsPerMonth");
+    countPerMonthContainer.className = "text-sm flex flex-col gap-1"
+
+    for (monthKey in postsPerMonthCountAsNames){
+        const dateDivContainer = document.createElement("div");
+        dateDivContainer.className = "flex flex-row gap-1";
+        const monthDiv = document.createElement("div");
+        monthDiv.className = "text-white font-bold";
+        monthDiv.innerHTML = monthKey;
+        const yearDiv = document.createElement("div");
+        yearDiv.className = "text-gray-400";
+        yearDiv.innerHTML = year;
+        dateDivContainer.appendChild(monthDiv);
+        dateDivContainer.appendChild(yearDiv);
+        const monthCountDiv = document.createElement("div");
+        monthCountDiv.className = "text-xl text-gray-400";
+        monthCountDiv.innerHTML = "Created " + postsPerMonthCountAsNames[monthKey] + (postsPerMonthCountAsNames[monthKey]>1?" posts":" post");
+                
+        countPerMonthContainer.appendChild(dateDivContainer);
+        countPerMonthContainer.appendChild(monthCountDiv);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
