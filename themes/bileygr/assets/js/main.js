@@ -165,6 +165,7 @@ async function createYearButtons() {
 
 
     const radioDivContainer = document.getElementById("yearButtons");
+    if (!radioDivContainer) return;
     radioDivContainer.innerHTML = "";
 
     years.forEach((year, idx) => {
@@ -312,10 +313,55 @@ async function renderContents(year) {
     container.appendChild(ol);
 }
 
+// Code from: https://www.dannyguo.com/blog/how-to-add-copy-to-clipboard-buttons-to-code-blocks-in-hugo
+async function addCopyButtons(clipboard) {
+  document.querySelectorAll("pre > code").forEach(function (codeBlock) {
+    const pre = codeBlock.parentNode;
+    pre.classList.add("relative", "group"); // enable positioning & hover styling
 
+    const button = document.createElement("button");
+    button.type = "button";
+    button.innerText = "Copy";
+    button.className = `
+      copy-code-button absolute top-2 right-2
+      text-xs px-2 py-1
+      bg-gray-800 text-gray-200
+      border border-gray-700 rounded-md
+      opacity-0 group-hover:opacity-100 transition
+      hover:bg-gray-700 hover:text-white
+    `;
 
+    button.addEventListener("click", function () {
+      clipboard.writeText(codeBlock.innerText).then(
+        function () {
+          button.blur();
+          button.innerText = "Copied!";
+          setTimeout(() => (button.innerText = "Copy"), 2000);
+        },
+        function () {
+          button.innerText = "Error";
+        }
+      );
+    });
 
+    // Attach inside the <pre> instead of outside for better positioning
+    pre.appendChild(button);
+  });
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
   await createYearButtons();
+  if (navigator && navigator.clipboard) {
+    addCopyButtons(navigator.clipboard);
+} else {
+    var script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/clipboard-polyfill/2.7.0/clipboard-polyfill.promise.js";
+    script.integrity = "sha256-waClS2re9NUbXRsryKoof+F9qc1gjjIhc2eT7ZbIv94=";
+    script.crossOrigin = "anonymous";
+    script.onload = function() {
+        addCopyButtons(clipboard);
+    };
+
+    document.body.appendChild(script);
+}
 });
