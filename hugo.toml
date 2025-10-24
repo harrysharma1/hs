@@ -22,3 +22,7 @@ theme = 'bileygr'
 
 [outputs]
   home = ["HTML", "RSS", "JSONFEED", "JSONDATES"]
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
