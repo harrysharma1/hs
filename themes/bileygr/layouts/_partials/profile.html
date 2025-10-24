@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center text-center">
     <div class="size-70 rounded-full overflow-hidden border border-gray-700 ring-2 ring-gray-900 outline -outline-offset-1 outline-white/10">
-        <img src="{{ .Site.Params.profileImgSrc }}" alt="Profile" class="object-cover w-full h-full" />
+        <img src="{{ .Site.Params.profileImgSrc | absURL }}" alt="Profile" class="object-cover w-full h-full" />
     </div>
     <div class="pt-4 w-full">
         <div class="flex flex-col items-start text-left pl-4">
@@ -35,7 +35,7 @@
                 <span class="absolute px-3 font-medium text-gray-300 -translate-x-1/2 bg-gray-950 left-1/2 dark:text-white dark:bg-gray-950">CV</span>
             </div>
             <div class="flex flex-row gap-3 text-gray-300 text-3xl">
-                <a href="{{ .Site.Params.cvSrc }}" download class="flex justify-center items-center hover:text-blue-400">
+                <a href="{{ .Site.Params.cvSrc | absURL }}" download class="flex justify-center items-center hover:text-blue-400">
                     <i class="bi bi-file-earmark-person"></i>
                 </a>
             </div>          

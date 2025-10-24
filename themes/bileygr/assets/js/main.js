@@ -5,7 +5,7 @@ import CalendarLabel from "cal-heatmap/plugins/CalendarLabel";
 
 async function fetchDates(){
     try{
-        const response = await fetch("/dates.json");
+        const response = await fetch(`${window.BASE_URL}dates.json`);
         if (!response){
             throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -18,7 +18,7 @@ async function fetchDates(){
 
 async function fetchData(){
     try{
-        const response = await fetch("/feed.json");
+        const response = await fetch(`${window.BASE_URL}feed.json`);
         if(!response){
             throw new Error(`HTTP error! status: ${response.status}`)
         }

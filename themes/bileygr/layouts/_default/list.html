@@ -6,7 +6,7 @@
 
   {{ range $paginator.Pages }}
   <div class="border-b border-gray-700 py-8 select-none">
-    <a href="{{ .RelPermalink }}" class="text-blue-400 text-2xl hover:underline">
+    <a href="{{ .RelPermalink | absURL }}" class="text-blue-400 text-2xl hover:underline">
       {{ .LinkTitle }}
     </a>
     <div class="flex flex-wrap gap-4 text-xs mt-2 text-gray-400">

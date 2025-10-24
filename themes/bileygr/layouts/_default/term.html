@@ -6,7 +6,7 @@
 
     {{ range $paginator.Pages }}
     <div class="border-b border-gray-700 py-8">
-        <a href="{{ .RelPermalink }}" class="text-blue-400 text-2xl hover:underline">
+        <a href="{{ .RelPermalink | absURL }}" class="text-blue-400 text-2xl hover:underline">
         {{ .LinkTitle }}
         </a>
         <div class="flex flex-wrap gap-4 text-xs mt-2 text-gray-400">
@@ -14,7 +14,7 @@
         <ul class="flex gap-2 flex-wrap">
             {{ range . }}
             <li class="hover:text-blue-400">
-            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><i class="bi bi-tag"></i>{{ . }}</a>
+            <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}"><i class="bi bi-tag"></i>{{ . }}</a>
             </li>
             {{ end }}
         </ul>

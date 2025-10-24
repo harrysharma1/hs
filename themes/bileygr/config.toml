@@ -1,12 +1,12 @@
 [params]
     author = "Harry Sharma"
     username = "harrysharma1"
-    githubUrl = "https://github.com/harrysharma1"
+    githubUrl = "https://harrysharma1.github.io/hs/"
     location = "Northampton, England"
     quote = "Job market is cooked, and so am I..."
     emails = ["harrysharma1066@gmail.com","inquiry@harrysharma.co.uk"]
-    profileImgSrc = "/yhwach.jpg"
-    cvSrc = "/harry_cv.pdf"
+    profileImgSrc = "yhwach.jpg"
+    cvSrc = "harry_cv.pdf"
     [[params.socials]]
         name = "LinkedIn"
         icon = "bi bi-linkedin"
