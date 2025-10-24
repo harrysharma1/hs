@@ -1,4 +1,6 @@
 baseURL = 'https://www.harrysharma.co.uk/'
+relativeURLs = true
+canonifyURLs = true
 languageCode = 'en-us'
 title = 'Portfolio'
 theme = 'bileygr'
