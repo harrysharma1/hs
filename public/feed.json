@@ -1,0 +1,14 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Portfolio",
+  "home_page_url": "http://localhost:1313/hs/",
+  "feed_url": "http://localhost:1313/hs/feed.json",
+  "items": [{
+        "id": "http://localhost:1313/hs/posts/hello-world/",
+        "url": "http://localhost:1313/hs/posts/hello-world/",
+        "title": "Hello World",
+        "file_path": "posts/hello-world.md",
+        "content_text": "\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#66d9ef\"\u003edef\u003c/span\u003e \u003cspan style=\"color:#a6e22e\"\u003ehello\u003c/span\u003e(name: str) \u003cspan style=\"color:#f92672\"\u003e-\u0026gt;\u003c/span\u003e str:\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#66d9ef\"\u003ereturn\u003c/span\u003e \u003cspan style=\"color:#e6db74\"\u003ef\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Hello, \u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e{\u003c/span\u003ename\u003cspan style=\"color:#e6db74\"\u003e}\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e!\u0026#34;\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e",
+        "date_published": "2025-10-14T18:56:58+01:00"
+      }]
+}
