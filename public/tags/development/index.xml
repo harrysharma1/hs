@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Portfolio</title>
+    <link>http://localhost:1313/tags/development/</link>
+    <description>Recent content in Development on Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Oct 2025 12:49:55 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How This Site Was Made</title>
+      <link>http://localhost:1313/projects/how-this-site-was-made/</link>
+      <pubDate>Fri, 24 Oct 2025 12:49:55 +0100</pubDate>
+      <guid>http://localhost:1313/projects/how-this-site-was-made/</guid>
+      <description>&lt;h1 id=&#34;how-this-site-was-made&#34;&gt;How This Site Was Made&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;hugo&#34;&gt;Hugo&lt;/h2&gt;&#xA;&lt;h3 id=&#34;what-is-hugo&#34;&gt;What is Hugo?&lt;/h3&gt;&#xA;&lt;p&gt;Hugo is a static site generator, which makes development of sites like portfolio ones very simple. Again this is a portfolio site with a blog element. I do not need to over-engineer a solution.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-i-like-about-it&#34;&gt;What I like about it?&lt;/h3&gt;&#xA;&lt;p&gt;I do not need to come up with a back end solution for something like this. Routing is handled through the layout directory, no data store solutions are required as markdown in the content directory get&amp;rsquo;s rendered onto the page. The minimal reactivity is introduced with JS.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

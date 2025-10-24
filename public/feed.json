@@ -1,1 +1,21 @@
-{"version":"https://jsonfeed.org/version/1.1","title":"Portfolio","home_page_url":"https://www.harrysharma.co.uk/","feed_url":"https://www.harrysharma.co.uk/feed.json","items":[{"id":"https://www.harrysharma.co.uk/posts/hello-world/","url":"https://www.harrysharma.co.uk/posts/hello-world/","title":"Hello World","file_path":"posts/hello-world.md","content_text":"\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#66d9ef\"\u003edef\u003c/span\u003e \u003cspan style=\"color:#a6e22e\"\u003ehello\u003c/span\u003e(name: str) \u003cspan style=\"color:#f92672\"\u003e-\u0026gt;\u003c/span\u003e str:\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#66d9ef\"\u003ereturn\u003c/span\u003e \u003cspan style=\"color:#e6db74\"\u003ef\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Hello, \u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e{\u003c/span\u003ename\u003cspan style=\"color:#e6db74\"\u003e}\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e!\u0026#34;\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e","date_published":"2025-10-14T18:56:58+01:00"}]}
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Portfolio",
+  "home_page_url": "http://localhost:1313/",
+  "feed_url": "http://localhost:1313/feed.json",
+  "items": [{
+        "id": "http://localhost:1313/projects/how-this-site-was-made/",
+        "url": "http://localhost:1313/projects/how-this-site-was-made/",
+        "title": "How This Site Was Made",
+        "file_path": "projects/how-this-site-was-made.md",
+        "content_text": "\u003ch1 id=\"how-this-site-was-made\"\u003eHow This Site Was Made\u003c/h1\u003e\n\u003chr\u003e\n\u003ch2 id=\"hugo\"\u003eHugo\u003c/h2\u003e\n\u003ch3 id=\"what-is-hugo\"\u003eWhat is Hugo?\u003c/h3\u003e\n\u003cp\u003eHugo is a static site generator, which makes development of sites like portfolio ones very simple. Again this is a portfolio site with a blog element. I do not need to over-engineer a solution.\u003c/p\u003e\n\u003ch3 id=\"what-i-like-about-it\"\u003eWhat I like about it?\u003c/h3\u003e\n\u003cp\u003eI do not need to come up with a back end solution for something like this. Routing is handled through the layout directory, no data store solutions are required as markdown in the content directory get\u0026rsquo;s rendered onto the page. The minimal reactivity is introduced with JS.\u003c/p\u003e",
+        "date_published": "2025-10-24T12:49:55+01:00"
+      },{
+        "id": "http://localhost:1313/posts/hello-world/",
+        "url": "http://localhost:1313/posts/hello-world/",
+        "title": "Hello World",
+        "file_path": "posts/hello-world.md",
+        "content_text": "\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#66d9ef\"\u003edef\u003c/span\u003e \u003cspan style=\"color:#a6e22e\"\u003ehello\u003c/span\u003e(name: str) \u003cspan style=\"color:#f92672\"\u003e-\u0026gt;\u003c/span\u003e str:\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#66d9ef\"\u003ereturn\u003c/span\u003e \u003cspan style=\"color:#e6db74\"\u003ef\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Hello, \u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e{\u003c/span\u003ename\u003cspan style=\"color:#e6db74\"\u003e}\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e!\u0026#34;\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e",
+        "date_published": "2025-10-14T18:56:58+01:00"
+      }]
+}

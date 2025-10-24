@@ -1,4 +1,4 @@
-.PHONY: tailwind, hugo, clean, serve
+.PHONY: tailwind, hugo, clean, serve, minify, cname
 
 clean:
 	rm -r public
@@ -10,3 +10,9 @@ hugo:
 	hugo serve -DF --noHTTPCache
 
 serve: clean tailwind hugo
+
+minify:  hugo --cleanDestinationDir --minify
+
+cname:
+	echo "www.harrysharma.co.uk" > ./public/CNAME
+	touch ./public/.nojekyll
